@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+categories = %w[React CSS TypeScript JavaScript Storybook Ruby Rails]
+
+# Make sure there's the same number of colours as categories for the each loop
+colours = %w[red yellow green blue indigo purple pink]
+
+raise 'Please ensure there are the same number of colours as categories' if colours.length != categories.length
+
+categories.each_with_index do |category, i|
+  Category.create(
+    title: category,
+    colour: colours[i]
+  )
+end
