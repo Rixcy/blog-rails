@@ -19,3 +19,15 @@ categories.each_with_index do |category, i|
     colour: colours[i]
   )
 end
+
+10.times do
+  name = Faker::TvShows::ParksAndRec.character
+  avatar_url = "https://robohash.org/#{name}"
+
+  Author.create(
+    name: name,
+    location: Faker::TvShows::ParksAndRec.city,
+    tagline: Faker::TvShows::MichaelScott.quote,
+    avatar_url: avatar_url
+  )
+end

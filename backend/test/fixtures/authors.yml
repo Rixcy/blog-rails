@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Jeff
+  location: London
+  tagline: First, solve the problem. Then, write the code.
+  avatar_url: https://robohash.org/jeff
+
+two:
+  name: Gary
+  location: Leeds
+  tagline: Knowledge is power.
+  avatar_url: https://robohash.org/gary
