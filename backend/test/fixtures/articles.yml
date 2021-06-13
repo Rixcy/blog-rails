@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: one
+  author: one
+  title: Cool Article
+  body: Very interesting body
+
+two:
+  category: two
+  author: two
+  title: Not Cool Article
+  body: Very interesting body

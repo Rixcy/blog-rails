@@ -24,4 +24,9 @@ class CategoryTest < ActiveSupport::TestCase
     category.colour = 'green'
     assert category.valid?
   end
+
+  test "can access category's articles" do
+    category = categories(:one)
+    assert_equal category.articles.first.id, categories(:one).id
+  end
 end

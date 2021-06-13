@@ -31,3 +31,15 @@ end
     avatar_url: avatar_url
   )
 end
+
+authors = Author.all
+
+authors.each do |author|
+  5.times do
+    author.articles.create(
+      title: Faker::Lorem.sentence(word_count: 6),
+      body: Faker::Lorem.paragraph(sentence_count: 5),
+      category_id: Category.all.sample.id
+    )
+  end
+end

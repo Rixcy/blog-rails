@@ -10,4 +10,9 @@ class AuthorTest < ActiveSupport::TestCase
     author.name = 'test'
     assert author.valid?
   end
+
+  test "can access author's articles" do
+    author = authors(:one)
+    assert_equal author.articles.first.id, articles(:one).id
+  end
 end
