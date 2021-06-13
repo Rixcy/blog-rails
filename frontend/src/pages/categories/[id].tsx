@@ -1,22 +1,16 @@
 import { InferGetStaticPropsType } from 'next'
 import { PageContainer } from '../../components/PageContainer'
-import { SectionHeader } from '../../components/SectionHeader'
 import { Category } from '../../types/Category'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
+import { CategoryHeader } from '../../components/CategoryHeader'
 
 export default function CategoryPage({ category }: InferGetStaticPropsType<typeof getStaticProps>) {
 	console.log({ category })
 	return (
 		<PageContainer>
 			<Meta title="Categories" />
-			<SectionHeader
-				key={`category_${category.id}`}
-				title={category.title}
-				titleColour={category.colour}
-				backLink="/categories"
-				tagline="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt"
-			/>
+			<CategoryHeader key={`category_${category.id}`} category={category} />
 			...Articles
 		</PageContainer>
 	)

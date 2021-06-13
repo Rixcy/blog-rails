@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import NextLink from 'next/link'
 import { Category } from '../types/Category'
+import { motion } from 'framer-motion'
 
 export type CategoryItemProps = {
 	category: Category
@@ -33,7 +34,7 @@ export const CategoryItem: React.VFC<CategoryItemProps> = (props) => {
 					{title.slice(0, 1)}
 				</div>
 				<div className="font-medium text-sm space-y-2">
-					<h3>{title}</h3>
+					<motion.h3 layoutId={`category-title-${id}`}>{title}</motion.h3>
 					<p className="text-gray-800">10 Articles</p>
 				</div>
 			</a>
