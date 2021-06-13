@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :authors
   resources :articles
+
+  get 'categories/:id/articles', to: 'articles#index_by_category'
 end

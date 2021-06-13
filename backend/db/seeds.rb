@@ -37,8 +37,8 @@ authors = Author.all
 authors.each do |author|
   5.times do
     author.articles.create(
-      title: Faker::Lorem.sentence(word_count: 6),
-      body: Faker::Lorem.paragraph(sentence_count: 5),
+      title: Faker::Lorem.sentence(word_count: 4),
+      body: Faker::Lorem.paragraph(sentence_count: 6),
       category_id: Category.all.sample.id
     )
   end

@@ -1,4 +1,5 @@
 import '../styles/global.css'
+import '@fontsource/inter'
 import type { AppProps } from 'next/app'
 import { AnimateSharedLayout } from 'framer-motion'
 

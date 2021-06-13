@@ -1,17 +1,25 @@
 import { InferGetStaticPropsType } from 'next'
 import { PageContainer } from '../../components/PageContainer'
+import { ArticleCard } from '../../components/ArticleCard'
 import { Category } from '../../types/Category'
+import { Article } from '../../types/Article'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
 import { CategoryHeader } from '../../components/CategoryHeader'
 
-export default function CategoryPage({ category }: InferGetStaticPropsType<typeof getStaticProps>) {
-	console.log({ category })
+export default function CategoryPage({
+	category,
+	articles,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<PageContainer>
 			<Meta title="Categories" />
 			<CategoryHeader key={`category_${category.id}`} category={category} />
-			...Articles
+			<div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+				{articles.map((article) => (
+					<ArticleCard article={article} key={article.id} />
+				))}
+			</div>
 		</PageContainer>
 	)
 }
@@ -21,9 +29,14 @@ export const getStaticProps = async ({ params }) => {
 
 	const category: Category = await res.json()
 
+	const articlesRes = await fetch(apiUrl(`categories/${params.id}/articles`))
+
+	const articles: Article[] = await articlesRes.json()
+
 	return {
 		props: {
 			category,
+			articles,
 		},
 	}
 }

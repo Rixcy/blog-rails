@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
 	mode: 'jit',
 	purge: {
@@ -24,14 +26,17 @@ module.exports = {
 			animation: {
 				'bounce-x': 'bounce-x 1s infinite',
 			},
+			fontFamily: {
+				sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+			},
 		},
 	},
 	variants: {
 		extend: {
-			ringOffsetColor: ['group-hover'],
-			ringOffsetWidth: ['group-hover'],
-			ringWidth: ['group-hover'],
-			ringColor: ['group-hover'],
+			ringOffsetColor: ['group-hover', 'hover'],
+			ringOffsetWidth: ['group-hover', 'hover'],
+			ringWidth: ['group-hover', 'hover'],
+			ringColor: ['group-hover', 'hover'],
 		},
 	},
 	plugins: [],

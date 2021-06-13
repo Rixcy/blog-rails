@@ -3,7 +3,20 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    articles = Article.all
+
+    @articles = articles.as_json(include: [{ author: { only: %i[id name avatar_url] } }, { category: { only: %i[id title colour] } }],
+                                 except: %i[author_id category_id])
+
+    json_response(@articles)
+  end
+
+  def index_by_category
+    articles = Category.find(params[:id]).articles
+
+    @articles = articles.as_json(include: [{ author: { only: %i[id name avatar_url] } }, { category: { only: %i[id title colour] } }],
+                                 except: %i[author_id category_id])
+
     json_response(@articles)
   end
 

@@ -10,11 +10,6 @@ export type SectionHeaderProps = {
 	 */
 	title: string
 	/**
-	 * Optional colour to be used for the title
-	 * @example <SectionHeader colour="green" />
-	 */
-	titleColour?: Colour
-	/**
 	 * Optional text to show below the section title
 	 * @example <SectionHeader tagline="Excepteur sint occaecat cupidatat" />
 	 */
@@ -27,20 +22,10 @@ export type SectionHeaderProps = {
 }
 
 export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
-	const { title, tagline, titleColour, backLink } = props
-
-	const colourClasses = {
-		red: 'text-red-600',
-		yellow: 'text-yellow-600',
-		green: 'text-green-600',
-		blue: 'text-blue-600',
-		indigo: 'text-indigo-600',
-		purple: 'text-purple-600',
-		pink: 'text-pink-600',
-	}
+	const { title, tagline, backLink } = props
 
 	return (
-		<div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-3xl mb-12">
+		<div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-3xl pb-6 md:pb-12">
 			<div className="flex flex-row">
 				<div className="flex-1 flex">
 					{backLink && (
@@ -52,14 +37,7 @@ export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
 						</NextLink>
 					)}
 				</div>
-				<h2
-					className={clsx(
-						'text-3xl font-extrabold tracking-tight sm:text-4xl',
-						colourClasses[titleColour]
-					)}
-				>
-					{title}
-				</h2>
+				<h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
 				<div className="flex-1" />
 			</div>
 			{tagline && <p className="text-xl text-gray-500">{tagline}</p>}
