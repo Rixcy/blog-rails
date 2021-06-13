@@ -7,7 +7,7 @@ export default function Categories({ categories }: InferGetStaticPropsType<typeo
 	return (
 		<>
 			<Meta title="Categories" />
-			<ul>
+			<ul className="list-inside list-disc">
 				{categories.map((category) => (
 					<li key={category.id}>{category.title}</li>
 				))}
