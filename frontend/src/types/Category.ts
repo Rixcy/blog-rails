@@ -1,9 +1,9 @@
-export type CategoryColour = 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink'
+import type { Colour } from './Colour'
 
 export type Category = {
 	id: number
 	title: string
-	colour: CategoryColour
+	colour: Colour
 	created_at: string
 	updated_at: string
 }
