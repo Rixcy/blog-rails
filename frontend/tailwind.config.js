@@ -39,5 +39,5 @@ module.exports = {
 			ringColor: ['group-hover', 'hover'],
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 }

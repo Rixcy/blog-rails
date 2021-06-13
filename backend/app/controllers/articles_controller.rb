@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show update destroy]
+  before_action :set_article, only: %i[update destroy]
 
   # GET /articles
   def index
@@ -22,6 +22,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id
   def show
+    article = Article.find(params[:id])
+
+    @article = article.as_json(include: [{ author: { only: %i[id name avatar_url] } }, { category: { only: %i[id title colour] } }],
+                               except: %i[author_id category_id])
+
     json_response(@article)
   end
 

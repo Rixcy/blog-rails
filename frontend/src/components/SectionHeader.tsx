@@ -1,7 +1,7 @@
-import clsx from 'clsx'
-import type { Colour } from '../types/Colour'
-import NextLink from 'next/link'
-import { ArrowNarrowLeftIcon } from '@heroicons/react/solid'
+import { SectionTitle } from './SectionTitle'
+import { BackButton } from './BackButton'
+import { motion } from 'framer-motion'
+import { SectionHeaderWrapper } from './SectionHeaderWrapper'
 
 export type SectionHeaderProps = {
 	/**
@@ -10,37 +10,49 @@ export type SectionHeaderProps = {
 	 */
 	title: string
 	/**
+	 * Optional layout ID for the title for framer-motion animations
+	 * @example <SectionHeader titleLayoutId="article-title" />
+	 */
+	titleLayoutId?: string
+	/**
 	 * Optional text to show below the section title
 	 * @example <SectionHeader tagline="Excepteur sint occaecat cupidatat" />
 	 */
-	tagline?: string
+	tagline?: React.ReactNode
+	/**
+	 * Optional layout ID for the tagline for framer-motion animations
+	 * @example <SectionHeader taglineLayoutId="author-name" />
+	 */
+	taglineLayoutId?: string
 	/**
 	 * Optional link to take the user back a page, if not provided the back link won't show
 	 * @example <SectionHeader backLink="/categories" />
 	 */
 	backLink?: string
+	/**
+	 * Optional right content
+	 * @example <SectionHeader rightContent={<CustomContent />} />
+	 */
+	rightContent?: React.ReactNode
 }
 
 export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
-	const { title, tagline, backLink } = props
+	const { title, titleLayoutId, tagline, taglineLayoutId, backLink, rightContent } = props
 
 	return (
-		<div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-3xl pb-6 md:pb-12">
+		<SectionHeaderWrapper>
 			<div className="flex flex-row">
-				<div className="flex-1 flex">
-					{backLink && (
-						<NextLink href={backLink} passHref>
-							<a className="flex flex-row items-center group transition text-sm text-gray-800">
-								<ArrowNarrowLeftIcon className="w-6 h-5 pr-1 opacity-0 group-hover:opacity-100 animate-bounce-x" />
-								<p>Back</p>
-							</a>
-						</NextLink>
-					)}
+				<div className="flex-1 hidden md:flex">
+					<BackButton link={backLink} />
 				</div>
-				<h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
-				<div className="flex-1" />
+				<SectionTitle layoutId={titleLayoutId} title={title} />
+				<div className="flex-1 hidden md:block">{rightContent}</div>
 			</div>
-			{tagline && <p className="text-xl text-gray-500">{tagline}</p>}
-		</div>
+			{tagline && (
+				<motion.p layoutId={taglineLayoutId} className="text-xl text-gray-500">
+					{tagline}
+				</motion.p>
+			)}
+		</SectionHeaderWrapper>
 	)
 }

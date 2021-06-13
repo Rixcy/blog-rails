@@ -4,6 +4,8 @@ import { truncateString } from '../utils/truncate-string'
 import NextLink from 'next/link'
 import { getReadingTime } from '../utils/get-reading-time'
 import dayjs from 'dayjs'
+import { motion } from 'framer-motion'
+import { CategoryBadge } from './CategoryBadge'
 
 export type ArticleCardProps = {
 	article: Article
@@ -13,16 +15,6 @@ export const ArticleCard: React.VFC<ArticleCardProps> = (props) => {
 	const {
 		article: { id, title, body, category, author, updated_at },
 	} = props
-
-	const colourClasses = {
-		red: 'bg-red-100 text-red-800',
-		yellow: 'bg-yellow-100 text-yellow-800',
-		green: 'bg-green-100 text-green-800',
-		blue: 'bg-blue-100 text-blue-800',
-		indigo: 'bg-indigo-100 text-indigo-800',
-		purple: 'bg-purple-100 text-purple-800',
-		pink: 'bg-pink-100 text-pink-800',
-	}
 
 	const ringClasses = {
 		red: 'hover:ring-red-300',
@@ -41,24 +33,21 @@ export const ArticleCard: React.VFC<ArticleCardProps> = (props) => {
 
 	return (
 		<div className={clsx('flex flex-col items-start p-4', hoverClasses)}>
-			<div>
-				<NextLink href={`/categories/${category.id}`} passHref>
-					<a className="inline-block">
-						<span
-							className={clsx(
-								'inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium',
-								colourClasses[category.colour]
-							)}
-						>
-							{category.title}
-						</span>
-					</a>
-				</NextLink>
-			</div>
+			<CategoryBadge category={category} layoutId={`article-category-${id}`} />
 			<NextLink href={`/articles/${id}`} passHref>
 				<a className="block mt-4 text-left">
-					<p className="text-xl font-semibold text-gray-900">{title}</p>
-					<p className="mt-3 text-base text-gray-500">{truncateString(body, 80)}</p>
+					<motion.p
+						className="text-xl font-semibold text-gray-900"
+						layoutId={`article-title-${id}`}
+					>
+						{title}
+					</motion.p>
+					<motion.p
+						layoutId={`article-body-${id}`}
+						className="mt-3 text-base text-gray-500"
+					>
+						{truncateString(body, 80)}
+					</motion.p>
 				</a>
 			</NextLink>
 			<div className="mt-6 flex items-center">
@@ -75,11 +64,14 @@ export const ArticleCard: React.VFC<ArticleCardProps> = (props) => {
 					</NextLink>
 				</div>
 				<div className="ml-3">
-					<p className="text-sm font-medium text-gray-900 text-left">
+					<motion.p
+						className="text-sm font-medium text-gray-900 text-left"
+						layoutId={`author-name-${id}`}
+					>
 						<NextLink href={`/authors/${author.id}`} passHref>
 							<a>{author.name}</a>
 						</NextLink>
-					</p>
+					</motion.p>
 					<div className="flex space-x-1 text-sm text-gray-500">
 						<time dateTime={updated_at}>
 							{dayjs(updated_at).format('MMM DD, YYYY')}
