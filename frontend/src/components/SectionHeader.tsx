@@ -46,7 +46,7 @@ export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
 					<BackButton link={backLink} />
 				</div>
 				<SectionTitle layoutId={titleLayoutId} title={title} />
-				<div className="flex-1 hidden md:block">{rightContent}</div>
+				<div className="flex-1 hidden md:flex justify-end">{rightContent}</div>
 			</div>
 			{tagline && (
 				<motion.p layoutId={taglineLayoutId} className="text-xl text-gray-500">

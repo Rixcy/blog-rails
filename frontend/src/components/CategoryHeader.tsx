@@ -35,7 +35,7 @@ export const CategoryHeader: React.VFC<CategoryHeaderProps> = (props) => {
 		<SectionHeaderWrapper>
 			<div className="flex flex-row">
 				<div className="flex-1 hidden md:flex">
-					<BackButton link="/categories" />
+					<BackButton linkText="All Categories" link="/categories" />
 				</div>
 				<motion.h2
 					className={clsx(
