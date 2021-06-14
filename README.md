@@ -8,13 +8,13 @@ Further screenshots can be found [here](./docs/screenshots.md)
 
 ## Notable libraries/features
 
--   [TailwindCSS](https://tailwindcss.com) used for styling
--   [Rubocop](https://github.com/rubocop/rubocop) used for linting the rails application
--   [Prettier](https://prettier.io) used for formatting front end code
--   [Commitlint](https://github.com/conventional-changelog/commitlint) used for ensuring commits follow a sensible format
--   [Husky](https://typicode.github.io/husky/) used to set up pre-commit/commit-msg git hooks for running linting before commits
--   [Framer-motion](framer.com/motion/) used for animations on the front end
--   [Faker](https://github.com/faker-ruby) used for generating random data to seed the rails database
+- [TailwindCSS](https://tailwindcss.com) used for styling
+- [Rubocop](https://github.com/rubocop/rubocop) used for linting the rails application
+- [Prettier](https://prettier.io) used for formatting front end code
+- [Commitlint](https://github.com/conventional-changelog/commitlint) used for ensuring commits follow a sensible format
+- [Husky](https://typicode.github.io/husky/) used to set up pre-commit/commit-msg git hooks for running linting before commits
+- [Framer-motion](framer.com/motion/) used for animations on the front end
+- [Faker](https://github.com/faker-ruby) used for generating random data to seed the rails database
 
 ## Quickstart
 

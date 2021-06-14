@@ -1,8 +1,9 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
+    "analyze": "ANALYZE=true next build",
     "dev": "next dev",
     "build": "next build",
     "preinstall": "npx only-allow yarn",
@@ -23,10 +24,11 @@
     "strip-markdown": "^4.0.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^10.2.3",
     "@types/react": "17.0.11",
     "autoprefixer": "^10.2.6",
+    "next-compose-plugins": "^2.2.1",
     "postcss": "^8.3.2",
-    "prettier": "2.3.1",
     "tailwindcss": "^2.1.4",
     "typescript": "4.3.2"
   }

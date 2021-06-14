@@ -3,7 +3,6 @@ import { PageContainer } from '../../components/PageContainer'
 import { Category } from '../../types/Category'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
-import { CategoryItem } from '../../components/CategoryItem'
 import { AuthorsHeader } from '../../components/AuthorsHeader'
 
 export default function Authors({

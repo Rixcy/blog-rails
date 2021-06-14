@@ -1,42 +1,43 @@
 {
-	"name": "blog-v2",
-	"version": "1.0.0",
-	"description": "",
-	"keywords": [],
-	"homepage": "https://github.com/Rixcy/blog-v2#readme",
-	"bugs": {
-		"url": "https://github.com/Rixcy/blog-v2/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Rixcy/blog-v2.git"
-	},
-	"license": "ISC",
-	"author": "Rick Booth",
-	"main": "index.js",
-	"scripts": {
-		"backend:dev": "cd backend && rails server",
-		"backend:console": "cd backend && rails console",
-		"backend:prepare": "cd backend && bundle install && rails db:migrate",
-		"backend:lint": "cd backend && bundle exec rubocop -a --fix",
-		"backend:seed": "cd backend && rails db:seed",
-		"backend:test": "cd backend && rails test",
-		"frontend:build": "cd frontend && next build",
-		"frontend:dev": "cd frontend && yarn dev",
-		"frontend:prepare": "yarn install && cd frontend && yarn install",
-		"frontend:lint": "cd frontend && prettier --write . --ignore-unknown",
-		"frontend:serve": "cd frontend && next build && next start",
-		"preinstall": "npx only-allow yarn",
-		"prepare": "husky install"
-	},
-	"lint-staged": {
-		"backend/{app,test}/**/*.rb": "cd backend && bundle exec rubocop -a --fix",
-		"frontend/**/*": "cd frontend && prettier --write --ignore-unknown"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^12.1.4",
-		"@commitlint/config-conventional": "^12.1.4",
-		"husky": "^6.0.0",
-		"lint-staged": "^11.0.0"
-	}
+  "name": "blog-v2",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/Rixcy/blog-v2#readme",
+  "bugs": {
+    "url": "https://github.com/Rixcy/blog-v2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rixcy/blog-v2.git"
+  },
+  "license": "ISC",
+  "author": "Rick Booth",
+  "main": "index.js",
+  "scripts": {
+    "backend:dev": "cd backend && rails server",
+    "backend:console": "cd backend && rails console",
+    "backend:prepare": "cd backend && bundle install && rails db:migrate",
+    "backend:seed": "cd backend && rails db:seed",
+    "backend:test": "cd backend && rails test",
+    "frontend:analyze": "cd frontend && yarn analyze",
+    "frontend:build": "cd frontend && next build",
+    "frontend:dev": "cd frontend && yarn dev",
+    "frontend:prepare": "yarn install && cd frontend && yarn install",
+    "frontend:serve": "cd frontend && next build && next start",
+    "lint": "prettier --write . --ignore-unknown && cd backend && bundle exec rubocop -a --fix",
+    "preinstall": "npx only-allow yarn",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "backend/{app,test}/**/*.rb": "cd backend && bundle exec rubocop -a --fix",
+    "frontend/**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "2.3.1"
+  }
 }
