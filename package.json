@@ -20,5 +20,10 @@
 		"backend:console": "cd backend && rails console",
 		"preinstall": "npx only-allow yarn",
 		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^12.1.4",
+		"@commitlint/config-conventional": "^12.1.4",
+		"husky": "^6.0.0"
 	}
 }
