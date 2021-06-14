@@ -1,0 +1,24 @@
+{
+	"name": "blog-v2",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"homepage": "https://github.com/Rixcy/blog-v2#readme",
+	"bugs": {
+		"url": "https://github.com/Rixcy/blog-v2/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Rixcy/blog-v2.git"
+	},
+	"license": "ISC",
+	"author": "Rick Booth",
+	"main": "index.js",
+	"scripts": {
+		"backend:dev": "cd backend && rails server",
+		"frontend:dev": "cd frontend && yarn dev",
+		"backend:console": "cd backend && rails console",
+		"preinstall": "npx only-allow yarn",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
