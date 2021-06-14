@@ -13,7 +13,7 @@ export default function Authors({
     <PageContainer>
       <Meta title="Authors" />
       <AuthorsHeader />
-      <ul className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-3xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-4 pt-6">
+      <ul className="mx-auto grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 lg:max-w-3xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-4 pt-6">
         {authors.map((author) => (
           <li key={author.id}>
             <AuthorCircle author={author} />

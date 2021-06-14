@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
     json_response(@articles)
   end
 
+  # GET /categories/:id/articles
   def index_by_category
     articles = Category.find(params[:id]).articles.order('updated_at DESC')
 
@@ -26,6 +27,7 @@ class ArticlesController < ApplicationController
     json_response(@articles)
   end
 
+  # GET /authors/:id/articles
   def index_by_author
     articles = Author.find(params[:id]).articles.order('updated_at DESC')
 
