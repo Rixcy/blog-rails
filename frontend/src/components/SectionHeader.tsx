@@ -1,7 +1,6 @@
 import { SectionTitle } from './SectionTitle'
 import { motion } from 'framer-motion'
 import { SectionHeaderWrapper } from './SectionHeaderWrapper'
-import { BouncingLink } from './BouncingLink'
 
 export type SectionHeaderProps = {
 	/**
@@ -25,10 +24,10 @@ export type SectionHeaderProps = {
 	 */
 	taglineLayoutId?: string
 	/**
-	 * Optional link to take the user back a page, if not provided the back link won't show
-	 * @example <SectionHeader backLink="/categories" />
+	 * Optional left content
+	 * @example <SectionHeader leftContent={<CustomContent />} />
 	 */
-	backLink?: string
+	leftContent?: React.ReactNode
 	/**
 	 * Optional right content
 	 * @example <SectionHeader rightContent={<CustomContent />} />
@@ -37,14 +36,12 @@ export type SectionHeaderProps = {
 }
 
 export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
-	const { title, titleLayoutId, tagline, taglineLayoutId, backLink, rightContent } = props
+	const { title, titleLayoutId, tagline, taglineLayoutId, leftContent, rightContent } = props
 
 	return (
 		<SectionHeaderWrapper>
 			<div className="flex flex-row">
-				<div className="flex-1 hidden md:flex">
-					<BouncingLink direction="left" link={backLink} />
-				</div>
+				<div className="flex-1 hidden md:flex">{leftContent}</div>
 				<SectionTitle layoutId={titleLayoutId} title={title} />
 				<div className="flex-1 hidden md:flex justify-end">{rightContent}</div>
 			</div>

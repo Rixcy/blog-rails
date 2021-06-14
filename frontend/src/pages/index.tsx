@@ -1,11 +1,9 @@
-import Head from 'next/head'
+import type { NextPageContext } from 'next'
 
 export default function Home() {
-	return (
-		<div>
-			<Head>
-				<title>Home</title>
-			</Head>
-		</div>
-	)
+	return null
+}
+
+Home.getInitialProps = async (ctx: NextPageContext) => {
+	ctx.res.writeHead(302, { Location: '/articles' }).end()
 }

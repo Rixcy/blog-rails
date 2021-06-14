@@ -1,7 +1,6 @@
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
-import NextLink from 'next/link'
 import { SectionHeader } from './SectionHeader'
 import type { Author } from '../types/Author'
+import { BouncingLink } from './BouncingLink'
 
 export type AuthorHeaderProps = {
 	author: Author
@@ -20,13 +19,11 @@ export const AuthorHeader: React.VFC<AuthorHeaderProps> = (props) => {
 			<SectionHeader
 				title={author.name}
 				tagline={author.tagline}
+				leftContent={
+					<BouncingLink direction="left" link="/categories" linkText="All Categories" />
+				}
 				rightContent={
-					<NextLink href="/articles" passHref>
-						<a className="flex flex-row items-center group transition text-sm text-gray-800">
-							<p>Articles</p>
-							<ArrowNarrowRightIcon className="ml-2 w-6 h-5 opacity-0 group-hover:opacity-100 animate-bounce-x" />
-						</a>
-					</NextLink>
+					<BouncingLink direction="right" link="/articles" linkText="All Articles" />
 				}
 			/>
 		</>
