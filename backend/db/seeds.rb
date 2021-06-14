@@ -36,7 +36,7 @@ authors = Author.all
 
 authors.each do |author|
   5.times do
-    timestamp = rand(1.months).seconds.ago
+    timestamp = rand(1.month).seconds.ago
 
     author.articles.create(
       title: Faker::Lorem.sentence(word_count: 4),
