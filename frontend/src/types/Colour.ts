@@ -1,1 +1,8 @@
-export type Colour = 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink'
+export type Colour =
+  | 'red'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'indigo'
+  | 'purple'
+  | 'pink'
