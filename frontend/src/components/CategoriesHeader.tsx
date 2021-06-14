@@ -1,6 +1,6 @@
+import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
 import NextLink from 'next/link'
 import { SectionHeader } from './SectionHeader'
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
 
 export const CategoriesHeader: React.VFC = () => {
 	return (

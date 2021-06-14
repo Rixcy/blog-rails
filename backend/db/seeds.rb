@@ -36,10 +36,14 @@ authors = Author.all
 
 authors.each do |author|
   5.times do
+    timestamp = rand(1.months).seconds.ago
+
     author.articles.create(
       title: Faker::Lorem.sentence(word_count: 4),
-      body: Faker::Lorem.paragraph(sentence_count: 6),
-      category_id: Category.all.sample.id
+      body: Faker::Markdown.sandwich(sentences: rand(6..30)),
+      category_id: Category.all.sample.id,
+      created_at: timestamp,
+      updated_at: timestamp
     )
   end
 end

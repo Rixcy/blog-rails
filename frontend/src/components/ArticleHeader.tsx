@@ -1,5 +1,5 @@
-import { Article } from '../types/Article'
 import NextLink from 'next/link'
+import type { Article } from '../types/Article'
 import { SectionHeader } from './SectionHeader'
 import { CategoryBadge } from './CategoryBadge'
 

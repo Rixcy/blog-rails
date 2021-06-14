@@ -1,16 +1,17 @@
 import clsx from 'clsx'
 import NextLink from 'next/link'
-import { Category } from '../types/Category'
 import { motion } from 'framer-motion'
+import type { Colour } from '../types/Colour'
 
-export type CategoryItemProps = {
-	category: Category
+export type ColouredCircleProps = {
+	title: string
+	link: string
+	colour: Colour
+	titleLayoutId?: string
 }
 
-export const CategoryItem: React.VFC<CategoryItemProps> = (props) => {
-	const {
-		category: { id, title, colour },
-	} = props
+export const ColouredCircle: React.VFC<ColouredCircleProps> = (props) => {
+	const { colour, link, title, titleLayoutId } = props
 
 	const colourClasses = {
 		red: 'bg-red-100 text-red-900 group-hover:ring-red-600',
@@ -23,7 +24,7 @@ export const CategoryItem: React.VFC<CategoryItemProps> = (props) => {
 	}
 
 	return (
-		<NextLink href={`/categories/${id}`} passHref>
+		<NextLink href={link} passHref>
 			<a className="space-y-4 flex flex-col items-center group">
 				<div
 					className={clsx(
@@ -34,8 +35,7 @@ export const CategoryItem: React.VFC<CategoryItemProps> = (props) => {
 					{title.slice(0, 1)}
 				</div>
 				<div className="font-medium text-sm space-y-2">
-					<motion.h3 layoutId={`category-title-${id}`}>{title}</motion.h3>
-					<p className="text-gray-800">10 Articles</p>
+					<motion.h3 layoutId={titleLayoutId}>{title}</motion.h3>
 				</div>
 			</a>
 		</NextLink>

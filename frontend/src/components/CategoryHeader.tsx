@@ -1,10 +1,8 @@
 import clsx from 'clsx'
-import NextLink from 'next/link'
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
 import { Category } from '../types/Category'
 import { motion } from 'framer-motion'
-import { BackButton } from './BackButton'
 import { SectionHeaderWrapper } from './SectionHeaderWrapper'
+import { BouncingLink } from './BouncingLink'
 
 export type CategoryHeaderProps = {
 	category: Category
@@ -35,7 +33,7 @@ export const CategoryHeader: React.VFC<CategoryHeaderProps> = (props) => {
 		<SectionHeaderWrapper>
 			<div className="flex flex-row">
 				<div className="flex-1 hidden md:flex">
-					<BackButton linkText="All Categories" link="/categories" />
+					<BouncingLink direction="left" linkText="All Categories" link="/categories" />
 				</div>
 				<motion.h2
 					className={clsx(
@@ -47,12 +45,7 @@ export const CategoryHeader: React.VFC<CategoryHeaderProps> = (props) => {
 					{title}
 				</motion.h2>
 				<div className="flex-1 hidden md:flex justify-end">
-					<NextLink href="/articles" passHref>
-						<a className="flex flex-row items-center group transition text-sm text-gray-800">
-							<p>All Articles</p>
-							<ArrowNarrowRightIcon className="ml-2 w-6 h-5 opacity-0 group-hover:opacity-100 animate-bounce-x" />
-						</a>
-					</NextLink>
+					<BouncingLink direction="right" linkText="All Articles" link="/articles" />
 				</div>
 			</div>
 			{tagline && <p className="text-xl text-gray-500">{tagline}</p>}

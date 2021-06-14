@@ -1,7 +1,7 @@
-import type { Category } from '../types/Category'
+import { motion } from 'framer-motion'
 import NextLink from 'next/link'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import type { Category } from '../types/Category'
 
 const colourClasses = {
 	red: 'bg-red-100 text-red-800',

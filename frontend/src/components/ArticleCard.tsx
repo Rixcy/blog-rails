@@ -1,19 +1,22 @@
-import clsx from 'clsx'
-import { Article } from '../types/Article'
-import { truncateString } from '../utils/truncate-string'
-import NextLink from 'next/link'
-import { getReadingTime } from '../utils/get-reading-time'
-import dayjs from 'dayjs'
 import { motion } from 'framer-motion'
+import NextLink from 'next/link'
+import clsx from 'clsx'
+import { truncateString } from '../utils/truncate-string'
+import { ArticleCardFooter } from './ArticleCardFooter'
 import { CategoryBadge } from './CategoryBadge'
+import type { Article } from '../types/Article'
+import ReactMarkdown from 'react-markdown'
+import stripMarkdown from 'strip-markdown'
 
 export type ArticleCardProps = {
 	article: Article
+	showAuthor?: boolean
 }
 
 export const ArticleCard: React.VFC<ArticleCardProps> = (props) => {
 	const {
-		article: { id, title, body, category, author, updated_at },
+		article: { id, title, body, category },
+		showAuthor = true,
 	} = props
 
 	const ringClasses = {
@@ -42,45 +45,17 @@ export const ArticleCard: React.VFC<ArticleCardProps> = (props) => {
 					>
 						{title}
 					</motion.p>
-					<motion.p
+					<motion.div
 						layoutId={`article-body-${id}`}
 						className="mt-3 text-base text-gray-500"
 					>
-						{truncateString(body, 80)}
-					</motion.p>
+						<ReactMarkdown components={{ p: 'span' }} plugins={[stripMarkdown]}>
+							{truncateString(body, 80)}
+						</ReactMarkdown>
+					</motion.div>
 				</a>
 			</NextLink>
-			<div className="mt-6 flex items-center">
-				<div className="flex-shrink-0">
-					<NextLink href={`/authors/${author.id}`} passHref>
-						<a>
-							<span className="sr-only">{author.name}</span>
-							<img
-								className="h-10 w-10 rounded-full bg-gray-200"
-								src={author.avatar_url}
-								alt={`${author.name}'s avatar`}
-							/>
-						</a>
-					</NextLink>
-				</div>
-				<div className="ml-3">
-					<motion.p
-						className="text-sm font-medium text-gray-900 text-left"
-						layoutId={`author-name-${id}`}
-					>
-						<NextLink href={`/authors/${author.id}`} passHref>
-							<a>{author.name}</a>
-						</NextLink>
-					</motion.p>
-					<div className="flex space-x-1 text-sm text-gray-500">
-						<time dateTime={updated_at}>
-							{dayjs(updated_at).format('MMM DD, YYYY')}
-						</time>
-						<span aria-hidden="true">&middot;</span>
-						<span>{getReadingTime(body)}</span>
-					</div>
-				</div>
-			</div>
+			<ArticleCardFooter showAuthor={showAuthor} article={props.article} />
 		</div>
 	)
 }

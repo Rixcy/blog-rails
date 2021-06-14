@@ -3,8 +3,8 @@ import { PageContainer } from '../../components/PageContainer'
 import { Category } from '../../types/Category'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
-import { CategoryItem } from '../../components/CategoryItem'
 import { CategoriesHeader } from '../../components/CategoriesHeader'
+import { ColouredCircle } from '../../components/ColouredCircle'
 
 export default function Categories({ categories }: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
@@ -14,7 +14,12 @@ export default function Categories({ categories }: InferGetStaticPropsType<typeo
 			<ul className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-3xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-4 pt-6">
 				{categories.map((category) => (
 					<li key={category.id}>
-						<CategoryItem category={category} />
+						<ColouredCircle
+							titleLayoutId={`category-title-${category.id}`}
+							title={category.title}
+							link={`/categories/${category.id}`}
+							colour={category.colour}
+						/>
 					</li>
 				))}
 			</ul>

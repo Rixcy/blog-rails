@@ -1,7 +1,7 @@
 import { SectionTitle } from './SectionTitle'
-import { BackButton } from './BackButton'
 import { motion } from 'framer-motion'
 import { SectionHeaderWrapper } from './SectionHeaderWrapper'
+import { BouncingLink } from './BouncingLink'
 
 export type SectionHeaderProps = {
 	/**
@@ -43,7 +43,7 @@ export const SectionHeader: React.VFC<SectionHeaderProps> = (props) => {
 		<SectionHeaderWrapper>
 			<div className="flex flex-row">
 				<div className="flex-1 hidden md:flex">
-					<BackButton link={backLink} />
+					<BouncingLink direction="left" link={backLink} />
 				</div>
 				<SectionTitle layoutId={titleLayoutId} title={title} />
 				<div className="flex-1 hidden md:flex justify-end">{rightContent}</div>

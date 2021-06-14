@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'categories/:id/articles', to: 'articles#index_by_category'
+  get 'authors/:id/articles', to: 'articles#index_by_author'
 end
