@@ -16,10 +16,15 @@
 	"main": "index.js",
 	"scripts": {
 		"backend:dev": "cd backend && rails server",
-		"frontend:dev": "cd frontend && yarn dev",
 		"backend:console": "cd backend && rails console",
-		"preinstall": "npx only-allow yarn",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"backend:prepare": "cd backend && bundle install && rails db:migrate",
+		"backend:seed": "cd backend && rails db:seed",
+		"backend:test": "cd backend && rails test",
+		"frontend:dev": "cd frontend && yarn dev",
+		"frontend:prepare": "yarn install && cd frontend && yarn install",
+		"frontend:build": "cd frontend && next build",
+		"frontend:serve": "cd frontend && next build && next start",
+		"preinstall": "npx only-allow yarn"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.1.4",
