@@ -1,7 +1,7 @@
-import clsx from 'clsx'
-import { Category } from '../types/Category'
 import { motion } from 'framer-motion'
+import clsx from 'clsx'
 import { SectionHeaderWrapper } from './SectionHeaderWrapper'
+import type { Category } from '../types/Category'
 import { BouncingLink } from './BouncingLink'
 
 export type CategoryHeaderProps = {

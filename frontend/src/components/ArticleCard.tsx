@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown'
+import stripMarkdown from 'strip-markdown'
 import { motion } from 'framer-motion'
 import NextLink from 'next/link'
 import clsx from 'clsx'
@@ -5,8 +7,6 @@ import { truncateString } from '../utils/truncate-string'
 import { ArticleCardFooter } from './ArticleCardFooter'
 import { CategoryBadge } from './CategoryBadge'
 import type { Article } from '../types/Article'
-import ReactMarkdown from 'react-markdown'
-import stripMarkdown from 'strip-markdown'
 
 export type ArticleCardProps = {
   article: Article

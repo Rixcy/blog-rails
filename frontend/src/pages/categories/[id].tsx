@@ -1,11 +1,11 @@
-import { InferGetStaticPropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
+import { CategoryHeader } from '../../components/CategoryHeader'
 import { PageContainer } from '../../components/PageContainer'
 import { ArticleCard } from '../../components/ArticleCard'
-import { Category } from '../../types/Category'
-import { Article } from '../../types/Article'
+import type { Category } from '../../types/Category'
+import type { Article } from '../../types/Article'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
-import { CategoryHeader } from '../../components/CategoryHeader'
 
 export default function CategoryPage({
   category,

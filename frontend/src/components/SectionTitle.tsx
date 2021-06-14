@@ -1,8 +1,19 @@
 import { motion } from 'framer-motion'
 
-export const SectionTitle: React.VFC<{ title: string; layoutId?: string }> = (
-  props
-) => {
+export type SectionTitleProps = {
+  /**
+   * Title for the section
+   * @example <SectionTitle title="Articles" />
+   */
+  title: string
+  /**
+   * Optional layout id to be used for framer motion animations
+   * @example <SectionTitle layoutId={`article-title-${article.id}`} />
+   */
+  layoutId?: string
+}
+
+export const SectionTitle: React.VFC<SectionTitleProps> = (props) => {
   const { title, layoutId } = props
   return (
     <motion.h2

@@ -1,7 +1,8 @@
+import { AnimateSharedLayout } from 'framer-motion'
+import type { AppProps } from 'next/app'
+
 import '../styles/global.css'
 import '@fontsource/inter'
-import type { AppProps } from 'next/app'
-import { AnimateSharedLayout } from 'framer-motion'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

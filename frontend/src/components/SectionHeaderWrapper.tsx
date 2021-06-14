@@ -1,4 +1,8 @@
 export type SectionHeaderWrapperProps = {
+  /**
+   * React Node to be passed through as children, required
+   * @example <SectionHeaderWrapper><div>content</div></SectionHeaderWrapper>
+   */
   children: React.ReactNode
 }
 

@@ -1,6 +1,6 @@
-import clsx from 'clsx'
-import NextLink from 'next/link'
 import { motion } from 'framer-motion'
+import NextLink from 'next/link'
+import clsx from 'clsx'
 import type { Colour } from '../types/Colour'
 
 export type ColouredCircleProps = {

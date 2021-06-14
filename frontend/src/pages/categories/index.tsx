@@ -1,10 +1,10 @@
-import { InferGetStaticPropsType } from 'next'
-import { PageContainer } from '../../components/PageContainer'
-import { Category } from '../../types/Category'
-import { Meta } from '../../components/Meta'
-import { apiUrl } from '../../utils/api-url'
+import type { InferGetStaticPropsType } from 'next'
 import { CategoriesHeader } from '../../components/CategoriesHeader'
 import { ColouredCircle } from '../../components/ColouredCircle'
+import { PageContainer } from '../../components/PageContainer'
+import type { Category } from '../../types/Category'
+import { Meta } from '../../components/Meta'
+import { apiUrl } from '../../utils/api-url'
 
 export default function Categories({
   categories,

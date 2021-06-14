@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
-import type { Article } from '../types/Article'
 import ReactMarkdown from 'react-markdown'
+import { motion } from 'framer-motion'
 import gfm from 'remark-gfm'
+import type { Article } from '../types/Article'
 
 export const ArticleBody: React.VFC<{ article: Article }> = (props) => {
   const {

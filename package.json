@@ -21,10 +21,10 @@
     "backend:seed": "cd backend && rails db:seed",
     "backend:test": "cd backend && rails test",
     "frontend:analyze": "cd frontend && yarn analyze",
-    "frontend:build": "cd frontend && next build",
+    "frontend:build": "cd frontend && yarn build",
     "frontend:dev": "cd frontend && yarn dev",
     "frontend:prepare": "yarn install && cd frontend && yarn install",
-    "frontend:serve": "cd frontend && next build && next start",
+    "frontend:serve": "cd frontend && yarn serve",
     "lint": "prettier --write . --ignore-unknown && cd backend && bundle exec rubocop -a --fix",
     "preinstall": "npx only-allow yarn",
     "prepare": "husky install"

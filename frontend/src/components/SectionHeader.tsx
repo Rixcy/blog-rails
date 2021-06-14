@@ -1,6 +1,6 @@
-import { SectionTitle } from './SectionTitle'
 import { motion } from 'framer-motion'
 import { SectionHeaderWrapper } from './SectionHeaderWrapper'
+import { SectionTitle } from './SectionTitle'
 
 export type SectionHeaderProps = {
   /**

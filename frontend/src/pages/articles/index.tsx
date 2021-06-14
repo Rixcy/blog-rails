@@ -1,10 +1,10 @@
-import { InferGetStaticPropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
+import { ArticlesHeader } from '../../components/ArticlesHeader'
 import { PageContainer } from '../../components/PageContainer'
 import { ArticleCard } from '../../components/ArticleCard'
-import { Article } from '../../types/Article'
+import type { Article } from '../../types/Article'
 import { Meta } from '../../components/Meta'
 import { apiUrl } from '../../utils/api-url'
-import { ArticlesHeader } from '../../components/ArticlesHeader'
 
 export default function Articles({
   articles,

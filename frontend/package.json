@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "preinstall": "npx only-allow yarn",
-    "start": "next start"
+    "start": "next start",
+    "serve": "next build && next start"
   },
   "dependencies": {
     "@fontsource/inter": "^4.4.5",

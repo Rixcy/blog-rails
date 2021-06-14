@@ -1,10 +1,10 @@
-import { InferGetStaticPropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import { PageContainer } from '../../components/PageContainer'
-import { Article } from '../../types/Article'
-import { Meta } from '../../components/Meta'
-import { apiUrl } from '../../utils/api-url'
 import { ArticleHeader } from '../../components/ArticleHeader'
 import { ArticleBody } from '../../components/ArticleBody'
+import type { Article } from '../../types/Article'
+import { Meta } from '../../components/Meta'
+import { apiUrl } from '../../utils/api-url'
 
 export default function ArticlePage({
   article,
