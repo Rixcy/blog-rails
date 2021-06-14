@@ -1,9 +1,10 @@
-import { InferGetStaticPropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import { PageContainer } from '../../components/PageContainer'
-import { Category } from '../../types/Category'
-import { Meta } from '../../components/Meta'
-import { apiUrl } from '../../utils/api-url'
 import { AuthorsHeader } from '../../components/AuthorsHeader'
+import { AuthorCircle } from '../../components/AuthorCircle'
+import type { Author } from '../../types/Author'
+import { apiUrl } from '../../utils/api-url'
+import { Meta } from '../../components/Meta'
 
 export default function Authors({
   authors,
@@ -13,8 +14,10 @@ export default function Authors({
       <Meta title="Authors" />
       <AuthorsHeader />
       <ul className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-3xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-4 pt-6">
-        {authors.map((category) => (
-          <li key={category.id}>stuff</li>
+        {authors.map((author) => (
+          <li key={author.id}>
+            <AuthorCircle author={author} />
+          </li>
         ))}
       </ul>
     </PageContainer>
@@ -24,7 +27,7 @@ export default function Authors({
 export const getStaticProps = async () => {
   const res = await fetch(apiUrl('authors'))
 
-  const authors: Category[] = await res.json()
+  const authors: Author[] = await res.json()
 
   return {
     props: {
