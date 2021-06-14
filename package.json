@@ -24,11 +24,16 @@
 		"frontend:prepare": "yarn install && cd frontend && yarn install",
 		"frontend:build": "cd frontend && next build",
 		"frontend:serve": "cd frontend && next build && next start",
-		"preinstall": "npx only-allow yarn"
+		"preinstall": "npx only-allow yarn",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"**/*": "cd frontend && prettier --write --ignore-unknown"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.1.4",
 		"@commitlint/config-conventional": "^12.1.4",
-		"husky": "^6.0.0"
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0"
 	}
 }
