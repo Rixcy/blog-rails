@@ -15,7 +15,7 @@
   "author": "Rick Booth",
   "main": "index.js",
   "scripts": {
-    "backend:dev": "cd backend && rails server",
+    "backend:dev": "cd backend && rails server -p 8000",
     "backend:console": "cd backend && rails console",
     "backend:prepare": "cd backend && bundle install && rails db:migrate",
     "backend:seed": "cd backend && rails db:seed",

@@ -9,10 +9,12 @@ import { apiUrl } from '../../utils/api-url'
 export default function Articles({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const articlesCount = articles.length
+
   return (
     <PageContainer>
       <Meta title="Articles" />
-      <ArticlesHeader />
+      <ArticlesHeader articlesCount={articlesCount} />
       <div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} />

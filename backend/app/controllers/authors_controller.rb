@@ -15,6 +15,7 @@ class AuthorsController < ApplicationController
   # POST /authors
   def create
     @author = Author.create!(author_params)
+
     json_response(@author, :created)
   end
 

@@ -2,7 +2,6 @@ import NextLink from 'next/link'
 import type { Article } from '../types/Article'
 import { SectionHeader } from './SectionHeader'
 import { CategoryBadge } from './CategoryBadge'
-import { BouncingLink } from './BouncingLink'
 
 export const ArticleHeader: React.VFC<{ article: Article }> = (props) => {
   const {
@@ -26,13 +25,6 @@ export const ArticleHeader: React.VFC<{ article: Article }> = (props) => {
       title={title}
       taglineLayoutId={`author-name-${id}`}
       tagline={<ArticleAuthor />}
-      leftContent={
-        <BouncingLink
-          direction="left"
-          link="/articles"
-          linkText="All Articles"
-        />
-      }
       rightContent={
         <CategoryBadge
           layoutId={`article-category-${id}`}

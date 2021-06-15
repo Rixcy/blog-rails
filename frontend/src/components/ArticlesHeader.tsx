@@ -1,10 +1,18 @@
 import { SectionHeader } from './SectionHeader'
 
-export const ArticlesHeader: React.VFC = () => {
+export type ArticlesHeaderProps = {
+  articlesCount?: number
+}
+
+export const ArticlesHeader: React.VFC<ArticlesHeaderProps> = (props) => {
+  const { articlesCount } = props
+
+  const taglineCount = articlesCount ? `${articlesCount}` : 'the most recent'
+
   return (
     <SectionHeader
       title="Articles"
-      tagline="View the most recent articles right here in your browser!"
+      tagline={`View ${taglineCount} articles right here in your browser!`}
     />
   )
 }

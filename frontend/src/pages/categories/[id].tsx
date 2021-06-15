@@ -1,4 +1,5 @@
 import type { InferGetStaticPropsType } from 'next'
+import { NoCategoryArticlesText } from '../../components/NoCategoryArticlesText'
 import { CategoryHeader } from '../../components/CategoryHeader'
 import { PageContainer } from '../../components/PageContainer'
 import { ArticleCard } from '../../components/ArticleCard'
@@ -15,11 +16,15 @@ export default function CategoryPage({
     <PageContainer>
       <Meta title="Categories" />
       <CategoryHeader key={`category_${category.id}`} category={category} />
-      <div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-        {articles.map((article) => (
-          <ArticleCard article={article} key={article.id} />
-        ))}
-      </div>
+      {articles.length > 0 ? (
+        <div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+          {articles.map((article) => (
+            <ArticleCard article={article} key={article.id} />
+          ))}
+        </div>
+      ) : (
+        <NoCategoryArticlesText categoryId={category.id} />
+      )}
     </PageContainer>
   )
 }

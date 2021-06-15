@@ -1,4 +1,5 @@
 import type { InferGetStaticPropsType } from 'next'
+import { NoAuthorArticlesText } from '../../components/NoAuthorArticlesText'
 import { PageContainer } from '../../components/PageContainer'
 import { AuthorHeader } from '../../components/AuthorHeader'
 import { ArticleCard } from '../../components/ArticleCard'
@@ -16,11 +17,19 @@ export default function AuthorPage(
     <PageContainer>
       <Meta title={author.name} />
       <AuthorHeader key={`author_${author.id}`} author={author} />
-      <div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-        {articles.map((article) => (
-          <ArticleCard showAuthor={false} article={article} key={article.id} />
-        ))}
-      </div>
+      {articles.length > 0 ? (
+        <div className="grid gap-16 pt-6 md:pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+          {articles.map((article) => (
+            <ArticleCard
+              showAuthor={false}
+              article={article}
+              key={article.id}
+            />
+          ))}
+        </div>
+      ) : (
+        <NoAuthorArticlesText authorId={author.id} />
+      )}
     </PageContainer>
   )
 }
