@@ -35,6 +35,7 @@ export const HeaderCreateDropdown: React.VFC = () => {
               'group inline-flex items-center text-base font-medium hover:text-gray-900',
               focusClasses
             )}
+            data-testid="create-dropdown-button"
           >
             <span>Create</span>
             <ChevronDownIcon
@@ -59,6 +60,7 @@ export const HeaderCreateDropdown: React.VFC = () => {
             <Popover.Panel
               static
               className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-[230px] sm:px-0"
+              data-testid="create-dropdown-content"
             >
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">

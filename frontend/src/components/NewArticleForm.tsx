@@ -65,9 +65,11 @@ export const NewArticleForm: React.VFC<NewArticleFormProps> = (props) => {
     if (res.status === 201) router.push(`/articles/${newArticle.id}`)
   })
 
-  const [selectedAuthor, setSelectedAuthor] = useState<Author | null>(null)
+  const [selectedAuthor, setSelectedAuthor] = useState<Author | null>(
+    authors[0]
+  )
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
+    categories[0]
   )
 
   return (

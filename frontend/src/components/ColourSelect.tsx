@@ -39,7 +39,7 @@ export const ColourSelect: React.VFC<ColourSelectProps> = (props) => {
       }}
     >
       {({ open }) => (
-        <div className="mb-4">
+        <div className="mb-4" data-testid="colour-select">
           <Listbox.Label className="block text-sm font-medium text-gray-700 text-left">
             Colour
           </Listbox.Label>

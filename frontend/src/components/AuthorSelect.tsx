@@ -39,7 +39,7 @@ export const AuthorSelect: React.VFC<AuthorSelectProps> = (props) => {
       }}
     >
       {({ open }) => (
-        <div className="mb-4">
+        <div className="mb-4" data-testid="author-select">
           <Listbox.Label className="block text-sm font-medium text-gray-700 text-left">
             Author
           </Listbox.Label>

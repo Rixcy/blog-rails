@@ -51,7 +51,7 @@ export const CategorySelect: React.VFC<CategorySelectProps> = (props) => {
       }}
     >
       {({ open }) => (
-        <div className="mb-4">
+        <div className="mb-4" data-testid="category-select">
           <Listbox.Label className="block text-sm font-medium text-gray-700 text-left">
             Category
           </Listbox.Label>
