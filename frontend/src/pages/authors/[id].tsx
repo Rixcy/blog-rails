@@ -13,7 +13,7 @@ export default function AuthorPage(
 ) {
   const { author, articles } = props
 
-  return (
+  return author ? (
     <PageContainer>
       <Meta title={author.name} />
       <AuthorHeader key={`author_${author.id}`} author={author} />
@@ -31,7 +31,7 @@ export default function AuthorPage(
         <NoAuthorArticlesText authorId={author.id} />
       )}
     </PageContainer>
-  )
+  ) : null
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -62,6 +62,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }

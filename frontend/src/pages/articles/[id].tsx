@@ -9,13 +9,13 @@ import { apiUrl } from '../../utils/api-url'
 export default function ArticlePage({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
+  return article ? (
     <PageContainer>
-      <Meta title={article.title} />
+      <Meta title={article?.title} />
       <ArticleHeader article={article} />
       <ArticleBody article={article} />
     </PageContainer>
-  )
+  ) : null
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -41,6 +41,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }

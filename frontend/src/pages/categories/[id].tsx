@@ -12,7 +12,7 @@ export default function CategoryPage({
   category,
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
+  return articles ? (
     <PageContainer>
       <Meta title="Categories" />
       <CategoryHeader key={`category_${category.id}`} category={category} />
@@ -26,7 +26,7 @@ export default function CategoryPage({
         <NoCategoryArticlesText categoryId={category.id} />
       )}
     </PageContainer>
-  )
+  ) : null
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -57,6 +57,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
