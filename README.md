@@ -8,6 +8,7 @@ Further screenshots can be found [here](./docs/screenshots.md)
 
 ## Notable libraries/features
 
+- [NextJS](https://nextjs.org) used as a React framework for the front end
 - [TailwindCSS](https://tailwindcss.com) used for styling
 - [Rubocop](https://github.com/rubocop/rubocop) used for linting the rails application
 - [Prettier](https://prettier.io) used for formatting front end code
