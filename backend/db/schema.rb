@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_06_12_230643) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "author_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "author_id", null: false
     t.string "title"
     t.string "body"
     t.datetime "created_at", precision: 6, null: false
