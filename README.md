@@ -40,6 +40,10 @@ $ yarn frontend:dev
 
 A full list of scripts can be found [here](./docs/scripts.md)
 
+## Deployment
+
+A guide on deployment can be found [here](./docs/deployment.md)
+
 ## Tips
 
 For debugging HTTP requests on the Rails backend, you can use the [httpie](https://httpie.io) package and run commands like `http :8000/articles` or `http PUT :8000/articles/1 title=Test Article` as an alternative to the embedded ruby environment.
